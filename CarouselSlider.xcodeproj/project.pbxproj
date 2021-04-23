@@ -8,18 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		4017582C26334B240029123D /* CarouselSliderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4017582B26334B240029123D /* CarouselSliderApp.swift */; };
-		4017582E26334B240029123D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4017582D26334B240029123D /* ContentView.swift */; };
 		4017583026334B280029123D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4017582F26334B280029123D /* Assets.xcassets */; };
 		4017583326334B280029123D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4017583226334B280029123D /* Preview Assets.xcassets */; };
+		4017583F26334B520029123D /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4017583C26334B520029123D /* Trip.swift */; };
+		4017584026334B520029123D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4017583D26334B520029123D /* ContentView.swift */; };
+		4017584126334B520029123D /* PageControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4017583E26334B520029123D /* PageControlView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4017582826334B240029123D /* CarouselSlider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarouselSlider.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4017582B26334B240029123D /* CarouselSliderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselSliderApp.swift; sourceTree = "<group>"; };
-		4017582D26334B240029123D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4017582F26334B280029123D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4017583226334B280029123D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4017583426334B280029123D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4017583C26334B520029123D /* Trip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
+		4017583D26334B520029123D /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		4017583E26334B520029123D /* PageControlView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageControlView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,7 +57,9 @@
 			isa = PBXGroup;
 			children = (
 				4017582B26334B240029123D /* CarouselSliderApp.swift */,
-				4017582D26334B240029123D /* ContentView.swift */,
+				4017583D26334B520029123D /* ContentView.swift */,
+				4017583E26334B520029123D /* PageControlView.swift */,
+				4017583C26334B520029123D /* Trip.swift */,
 				4017582F26334B280029123D /* Assets.xcassets */,
 				4017583426334B280029123D /* Info.plist */,
 				4017583126334B280029123D /* Preview Content */,
@@ -76,6 +82,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4017583726334B280029123D /* Build configuration list for PBXNativeTarget "CarouselSlider" */;
 			buildPhases = (
+				40175843263350130029123D /* Run SwiftLint */,
 				4017582426334B240029123D /* Sources */,
 				4017582526334B240029123D /* Frameworks */,
 				4017582626334B240029123D /* Resources */,
@@ -133,13 +140,36 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		40175843263350130029123D /* Run SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run SwiftLint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4017582426334B240029123D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4017582E26334B240029123D /* ContentView.swift in Sources */,
+				4017583F26334B520029123D /* Trip.swift in Sources */,
+				4017584126334B520029123D /* PageControlView.swift in Sources */,
 				4017582C26334B240029123D /* CarouselSliderApp.swift in Sources */,
+				4017584026334B520029123D /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
