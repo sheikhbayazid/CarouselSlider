@@ -13,10 +13,10 @@ struct Trip: Identifiable, Hashable {
     let title: String
     
     static let example: [Trip] = [
-        Trip(image: "p1", title: "Boat"),
+        Trip(image: "p1", title: "Ocean"),
         // Trip(image: "p2", title: "Mountain"),
         Trip(image: "p3", title: "Road"),
-        Trip(image: "p4", title: "Coffee"),
+        Trip(image: "p4", title: "Development"),
         Trip(image: "p5", title: "Occupy Mars"),
         Trip(image: "p6", title: "macOS")
     ]

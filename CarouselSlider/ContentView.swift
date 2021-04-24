@@ -17,6 +17,7 @@ struct ContentView: View {
                 
                 let frame = geo.frame(in: .global)
                 
+                // MARK: - Current Image
                 Image(selectedTab.image)
                     .resizable()
                     .scaledToFill()
@@ -25,44 +26,48 @@ struct ContentView: View {
             }
             .ignoresSafeArea()
             
-            // MARK: - Custom Carousel
+            // MARK: - Header
             VStack {
-                Text("Welcome!")
-                    .fontWeight(.medium)
-                    .foregroundColor(.black)
-                
-                Text("highonswiftui")
-                    .font(.title)
-                    .fontWeight(.semibold)
-                    .foregroundColor(.black)
-                    .padding(.bottom, 40)
+                VStack {
+                    Text("Welcome!")
+                        .fontWeight(.medium)
+                        .foregroundColor(.black)
+                    
+                    Text("highonswiftui")
+                        .font(.title)
+                        .fontWeight(.semibold)
+                        .foregroundColor(.black)
+                }
+                .offset(y: -50)
                 
                 // MARK: - Carousel
                 VStack {
                     GeometryReader { geo in
                         let frame = geo.frame(in: .global)
                         
+                        // MARK: - Images
                         TabView(selection: $selectedTab) {
                             ForEach(trips) { trip in
                                 Image(trip.image)
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
-                                    .frame(width: frame.width - 10, height: frame.height)
                                     .cornerRadius(5)
+                                    .frame(width: frame.width - 10, height: frame.height)
                                     .tag(trip)
                             }
-                        }.tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
+                        }.tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                         
-                    }.frame(height: UIScreen.main.bounds.size.height / 2.2)
+                    }.frame(height: UIScreen.main.bounds.size.height / 3.5)
+                    //.background(Color.gray)
+                    
+                    // MARK: - PageControl using UIKit
+                    PageControlView(currentPage: getCurrentPageIndex(), numberOfPages: trips.count).padding(.vertical, 10)
+                        .offset(y: -20)
                     
                     Text(selectedTab.title)
                         .font(.title2)
                         .fontWeight(.semibold)
-                        .padding(.top, 20)
-                        //.padding(.bottom)
-                    
-                    // MARK: - PageControl using UIKit
-                    PageControlView(currentPage: getCurrentPageIndex(), numberOfPages: trips.count).padding(.vertical, 10)
+                        .padding(.bottom)
                     
                 }.padding(.top)
                 .padding(.horizontal, 10)
@@ -70,6 +75,7 @@ struct ContentView: View {
                 .background(Color.white.cornerRadius(10))
                 .padding(.horizontal, 20)
                 
+                // MARK: - GET STARTED BUTTON
                 Button(action: {}, label: {
                     Text("GET STARTED")
                         .fontWeight(.bold)
@@ -84,6 +90,7 @@ struct ContentView: View {
         }
     }
     
+    // MARK: - Get Current Index of the page
     func getCurrentPageIndex() -> Int {
         let index = trips.firstIndex { (trip) -> Bool in
             return selectedTab.id == trip.id
